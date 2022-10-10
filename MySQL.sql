@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `usersdb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `usersdb`;
 -- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: usersdb
@@ -36,7 +38,7 @@ CREATE TABLE `api_user` (
   `first_name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +47,6 @@ CREATE TABLE `api_user` (
 
 LOCK TABLES `api_user` WRITE;
 /*!40000 ALTER TABLE `api_user` DISABLE KEYS */;
-INSERT INTO `api_user` VALUES (1,'pbkdf2_sha256$390000$o6bAW33HDt4j1K7mQPCSdr$iV3ZRZh9j8Xc5tR3u8aRxh7N8s2xOLCimH+Ww7V3KTw=','2022-10-09 16:33:04.112857',1,'','',1,1,'2022-10-06 14:21:09.854848','admin','');
 /*!40000 ALTER TABLE `api_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +182,7 @@ CREATE TABLE `auth_permission` (
 
 LOCK TABLES `auth_permission` WRITE;
 /*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
-INSERT INTO `auth_permission` VALUES (1,'Can add permission',1,'add_permission'),(2,'Can change permission',1,'change_permission'),(3,'Can delete permission',1,'delete_permission'),(4,'Can view permission',1,'view_permission'),(5,'Can add group',2,'add_group'),(6,'Can change group',2,'change_group'),(7,'Can delete group',2,'delete_group'),(8,'Can view group',2,'view_group'),(9,'Can add content type',3,'add_contenttype'),(10,'Can change content type',3,'change_contenttype'),(11,'Can delete content type',3,'delete_contenttype'),(12,'Can view content type',3,'view_contenttype'),(13,'Can add user',4,'add_user'),(14,'Can change user',4,'change_user'),(15,'Can delete user',4,'delete_user'),(16,'Can view user',4,'view_user'),(17,'Can add log entry',5,'add_logentry'),(18,'Can change log entry',5,'change_logentry'),(19,'Can delete log entry',5,'delete_logentry'),(20,'Can view log entry',5,'view_logentry'),(21,'Can add session',6,'add_session'),(22,'Can change session',6,'change_session'),(23,'Can delete session',6,'delete_session'),(24,'Can view session',6,'view_session'),(25,'Can add Token',7,'add_token'),(26,'Can change Token',7,'change_token'),(27,'Can delete Token',7,'delete_token'),(28,'Can view Token',7,'view_token'),(29,'Can add token',8,'add_tokenproxy'),(30,'Can change token',8,'change_tokenproxy'),(31,'Can delete token',8,'delete_tokenproxy'),(32,'Can view token',8,'view_tokenproxy');
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add content type',4,'add_contenttype'),(14,'Can change content type',4,'change_contenttype'),(15,'Can delete content type',4,'delete_contenttype'),(16,'Can view content type',4,'view_contenttype'),(17,'Can add session',5,'add_session'),(18,'Can change session',5,'change_session'),(19,'Can delete session',5,'delete_session'),(20,'Can view session',5,'view_session'),(21,'Can add Token',6,'add_token'),(22,'Can change Token',6,'change_token'),(23,'Can delete Token',6,'delete_token'),(24,'Can view Token',6,'view_token'),(25,'Can add token',7,'add_tokenproxy'),(26,'Can change token',7,'change_tokenproxy'),(27,'Can delete token',7,'delete_tokenproxy'),(28,'Can view token',7,'view_tokenproxy'),(29,'Can add user',8,'add_user'),(30,'Can change user',8,'change_user'),(31,'Can delete user',8,'delete_user'),(32,'Can view user',8,'view_user');
 /*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +209,6 @@ CREATE TABLE `authtoken_token` (
 
 LOCK TABLES `authtoken_token` WRITE;
 /*!40000 ALTER TABLE `authtoken_token` DISABLE KEYS */;
-INSERT INTO `authtoken_token` VALUES ('e377bee9b77ad272938ad502a9353bc572608b93','2022-10-09 16:04:11.891589',1);
 /*!40000 ALTER TABLE `authtoken_token` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,7 +234,7 @@ CREATE TABLE `django_admin_log` (
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_Api_user_id` FOREIGN KEY (`user_id`) REFERENCES `api_user` (`id`),
   CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +243,6 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2022-10-06 14:28:16.498687','2','usertest',1,'[{\"added\": {}}]',4,1),(2,'2022-10-06 14:29:30.179685','2','usertest',2,'[{\"changed\": {\"fields\": [\"First name\"]}}]',4,1),(3,'2022-10-06 14:29:37.209585','2','usertest',2,'[]',4,1),(4,'2022-10-06 14:29:41.470718','2','usertest',2,'[]',4,1),(5,'2022-10-06 20:32:40.187367','2','usertest',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,1),(6,'2022-10-06 20:33:42.068966','2','usertest',2,'[{\"changed\": {\"fields\": [\"password\"]}}]',4,1),(7,'2022-10-09 16:33:31.804710','4','user4',2,'[{\"changed\": {\"fields\": [\"Superuser status\"]}}]',4,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +268,7 @@ CREATE TABLE `django_content_type` (
 
 LOCK TABLES `django_content_type` WRITE;
 /*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
-INSERT INTO `django_content_type` VALUES (5,'admin','logentry'),(4,'Api','user'),(2,'auth','group'),(1,'auth','permission'),(7,'authtoken','token'),(8,'authtoken','tokenproxy'),(3,'contenttypes','contenttype'),(6,'sessions','session');
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(8,'Api','user'),(3,'auth','group'),(2,'auth','permission'),(6,'authtoken','token'),(7,'authtoken','tokenproxy'),(4,'contenttypes','contenttype'),(5,'sessions','session');
 /*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +285,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -295,7 +294,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2022-10-06 13:49:31.303307'),(2,'contenttypes','0002_remove_content_type_name','2022-10-06 13:49:31.370377'),(3,'auth','0001_initial','2022-10-06 13:49:31.571785'),(4,'auth','0002_alter_permission_name_max_length','2022-10-06 13:49:31.615594'),(5,'auth','0003_alter_user_email_max_length','2022-10-06 13:49:31.622566'),(6,'auth','0004_alter_user_username_opts','2022-10-06 13:49:31.636248'),(7,'auth','0005_alter_user_last_login_null','2022-10-06 13:49:31.649431'),(8,'auth','0006_require_contenttypes_0002','2022-10-06 13:49:31.655346'),(9,'auth','0007_alter_validators_add_error_messages','2022-10-06 13:49:31.670948'),(10,'auth','0008_alter_user_username_max_length','2022-10-06 13:49:31.676514'),(11,'auth','0009_alter_user_last_name_max_length','2022-10-06 13:49:31.691076'),(12,'auth','0010_alter_group_name_max_length','2022-10-06 13:49:31.730068'),(13,'auth','0011_update_proxy_permissions','2022-10-06 13:49:31.750794'),(14,'auth','0012_alter_user_first_name_max_length','2022-10-06 13:49:31.764023'),(15,'Api','0001_initial','2022-10-06 13:49:32.190831'),(16,'admin','0001_initial','2022-10-06 14:24:24.947863'),(17,'admin','0002_logentry_remove_auto_add','2022-10-06 14:24:24.956490'),(18,'admin','0003_logentry_add_action_flag_choices','2022-10-06 14:24:24.963423'),(19,'sessions','0001_initial','2022-10-06 14:24:24.992891'),(20,'authtoken','0001_initial','2022-10-06 20:30:38.230430'),(21,'authtoken','0002_auto_20160226_1747','2022-10-06 20:30:38.252945'),(22,'authtoken','0003_tokenproxy','2022-10-06 20:30:38.257991');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2022-10-09 23:51:45.820474'),(2,'contenttypes','0002_remove_content_type_name','2022-10-09 23:51:45.888791'),(3,'auth','0001_initial','2022-10-09 23:51:46.354537'),(4,'auth','0002_alter_permission_name_max_length','2022-10-09 23:51:46.403811'),(5,'auth','0003_alter_user_email_max_length','2022-10-09 23:51:46.416259'),(6,'auth','0004_alter_user_username_opts','2022-10-09 23:51:46.424941'),(7,'auth','0005_alter_user_last_login_null','2022-10-09 23:51:46.433219'),(8,'auth','0006_require_contenttypes_0002','2022-10-09 23:51:46.439020'),(9,'auth','0007_alter_validators_add_error_messages','2022-10-09 23:51:46.451790'),(10,'auth','0008_alter_user_username_max_length','2022-10-09 23:51:46.463550'),(11,'auth','0009_alter_user_last_name_max_length','2022-10-09 23:51:46.469438'),(12,'auth','0010_alter_group_name_max_length','2022-10-09 23:51:46.483771'),(13,'auth','0011_update_proxy_permissions','2022-10-09 23:51:46.492112'),(14,'auth','0012_alter_user_first_name_max_length','2022-10-09 23:51:46.498702'),(15,'Api','0001_initial','2022-10-09 23:51:46.748100'),(16,'Api','0002_alter_user_first_name_alter_user_password','2022-10-09 23:51:46.760711'),(17,'admin','0001_initial','2022-10-09 23:51:46.858556'),(18,'admin','0002_logentry_remove_auto_add','2022-10-09 23:51:46.868711'),(19,'admin','0003_logentry_add_action_flag_choices','2022-10-09 23:51:46.877624'),(20,'authtoken','0001_initial','2022-10-09 23:51:46.943057'),(21,'authtoken','0002_auto_20160226_1747','2022-10-09 23:51:46.969443'),(22,'authtoken','0003_tokenproxy','2022-10-09 23:51:46.979013'),(23,'sessions','0001_initial','2022-10-09 23:51:47.013067');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,7 +320,6 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('j7bfs98yfk2don0urv2basc7cvaagnx0','.eJxVjDkOwjAURO_iGlle8I9DSc8ZrL84OIAcKU4qxN1JpBTQjea9mbdKuC4lrS3PaRR1UVadfjtCfua6A3lgvU-ap7rMI-ld0Qdt-jZJfl0P9--gYCvbmgfxQiYbkpiJGLJ0Bs8hgkHnwhDQ-b5nsN5DjGCFHHTEFq0wbFF9vgpuOCM:1ohZEe:h7VYJERJzGg1-0X-4wZuCNChN6iQEkoFb04qnZNhJLk','2022-10-23 16:33:04.118492');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -334,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-10  0:28:22
+-- Dump completed on 2022-10-10  2:58:33
