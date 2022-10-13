@@ -27,8 +27,8 @@ pip install -r requirements.txt
 
 #### 5. Edit project settings
 
-# Edit Database configurations with your MySQL configurations in the file CRUDApplication/UsersAPI/settings.py 
-# Search for DATABASES section.
+Edit Database configurations with your MySQL configurations in the file CRUDApplication/UsersAPI/settings.py 
+Search for DATABASES section.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
