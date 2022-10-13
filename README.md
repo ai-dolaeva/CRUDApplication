@@ -25,7 +25,22 @@ cd CRUDApplication
 pip install -r requirements.txt
 ```
 
-#### 5. Load sample data into MySQL
+#### 5. Edit project settings
+
+# Edit Database configurations with your MySQL configurations in the file CRUDApplication/UsersAPI/settings.py 
+# Search for DATABASES section.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'usersdb',
+        'USER': '<mysql-user>',
+        'PASSWORD': '<mysql-password>',
+        'HOST': '<mysql-host>',
+        'PORT': '<mysql-port>',
+    }
+}
+
+#### 6. Load sample data into MySQL
 ```bash
 # open mysql bash
 mysql -u <mysql-user> -p
@@ -36,7 +51,7 @@ mysql> exit;
 
 ```
 
-#### 6. Run the server
+#### 7. Run the server
 ```bash
 # Make migrations
 python manage.py makemigrations
@@ -46,7 +61,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-#### 7. Check Api by Postman or Python Requests Library
+#### 8. Check Api by Postman or Python Requests Library
 ```bash
 # Install Requests Library
 >>>pip install requests
